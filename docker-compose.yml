@@ -19,7 +19,7 @@ services:
     ports:
       - "5044:5044"
     volumes:
-      - /home/pnkazlou/docker/logstash/pipeline:/usr/share/logstash/pipeline
+      - /home/akiro/docker/logstash/pipeline:/usr/share/logstash/pipeline
 
   mongodb:
     image: mongo:latest
