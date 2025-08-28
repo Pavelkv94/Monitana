@@ -1,0 +1,39 @@
+{
+  "name": "monitana-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "dev": "nodemon --inspect dist/index.js",
+    "lint": "biome check .",
+    "format": "biome format . --write",
+		"build": "tsc",
+		"start": "node dist/index.js"
+  },
+  "author": "Pavel wickers",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "country-emoji": "^1.5.6",
+    "device-detector-js": "^3.0.3",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "geoip-lite": "^1.4.10",
+    "inversify": "^7.9.1",
+    "mongoose": "^8.18.0",
+    "redis": "^5.8.2",
+    "reflect-metadata": "^0.2.2",
+    "split2": "^4.2.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/geoip-lite": "^1.4.4",
+    "@types/node": "^24.3.0",
+    "@types/split2": "^4.2.3",
+    "nodemon": "^3.1.10",
+    "typescript": "^5.9.2"
+  }
+}
