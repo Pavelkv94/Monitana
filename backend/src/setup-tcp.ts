@@ -11,6 +11,7 @@ tcpServer.on('connection', socket => {
 			const log = JSON.parse(line);
 			const ip = log.source?.address || "Unknown";
 			const ipPrefix = ip.split('.').slice(0, 3).join('.') || null;
+			console.log("Connection from", ip);
 
 			if (ipPrefix !== "10.0.0") {
 				let metadata;
