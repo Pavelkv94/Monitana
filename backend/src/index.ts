@@ -24,7 +24,7 @@ setupApp(app);
 setupTCP(tcpServer, redisClient);
 
 // запуск tcp сервера
-tcpServer.listen(process.env.PORT_TCP, () => console.log('Listening Logstash on port 5006'));
+tcpServer.listen(process.env.PORT_TCP, () => console.log(`Listening Logstash on port ${process.env.PORT_TCP}`));
 
 // запуск приложения
 app.listen(process.env.PORT_HTTP, () => {
