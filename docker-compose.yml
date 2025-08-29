@@ -58,3 +58,4 @@ volumes:
 
 networks:
   monitana_network:
+    - bridge
