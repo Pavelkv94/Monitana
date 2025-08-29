@@ -28,6 +28,8 @@ tcpServer.on('connection', socket => {
 					originalLog: {...log, formattedTimestamp: new Date(log["@timestamp"])},
 					metadata
 				});
+				const lastLogs = await LogModel.findOne({})
+				console.log("Last logs", lastLogs);
 			}
 		} catch (err: any) {
 			console.warn('Parsing error:', err.message);
