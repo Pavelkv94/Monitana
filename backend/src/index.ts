@@ -6,6 +6,8 @@ import { db } from "./db/db";
 import { createClient } from 'redis';
 import { setupTCP } from "./setup-tcp";
 
+config();
+
 const redisClient = createClient({
 	url: process.env.REDIS_URL as string,
 });
@@ -14,7 +16,7 @@ redisClient.connect().then(() => console.log('Redis connected')).catch(console.e
 const app = express();
 const tcpServer = http.createServer(app);
 
-config();
+
 
 db.connect(process.env.MONGO_URL as string);
 

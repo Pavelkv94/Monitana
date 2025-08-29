@@ -10,8 +10,17 @@ services:
       PORT_HTTP: $PORT_HTTP
       PORT_TCP: $PORT_TCP
       REDIS_URL: $REDIS_URL
+    depends_on:
+        - mongodb
+        - redis
+        - logstash
     ports:
-      - "5006:5006"
+      #tcp
+      - "5006:5002" 
+      #http
+      - "5007:5000"
+    networks:
+      - monitana_network
 
   logstash:
     image: elastic/logstash:9.1.2
@@ -27,8 +36,10 @@ services:
     ports:
       - "27020:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: $MONGO_USERNAME
+      MONGO_INITDB_ROOT_PASSWORD: $MONGO_PASSWORD
+    networks:
+      - monitana_network
 
   redis:
     image: redis:latest
@@ -36,9 +47,14 @@ services:
     restart: unless-stopped
     ports:
       - "6380:6379"
-    command: redis-server --requirepass ${REDIS_PASSWORD}
+    command: redis-server --requirepass ${REDIS_PASSWORD} --username ${REDIS_USERNAME}
     volumes:
       - monitana_redis:/data
+    networks:
+      - monitana_network
 
 volumes:
   monitana_redis:
+
+networks:
+  monitana_network:
