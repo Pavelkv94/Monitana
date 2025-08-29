@@ -15,9 +15,9 @@ export const setupApp = (app: Express) => {
 	app.use("/tg", telegramRouter);
 	app.use("/view", viewRouter);
 
-  app.get("/clear-db", async (req, res) => {
-		await db.drop();
-    res.status(200).send("DB cleared");
-  });
+	// app.get("/clear-db", async (req, res) => {
+	// 	await db.drop();
+	//   res.status(200).send("DB cleared");
+	// });
   return app;
 };
