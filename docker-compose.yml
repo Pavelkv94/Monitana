@@ -20,8 +20,8 @@ services:
       - "5006:5002" 
       #http
       - "5007:5000"
-    networks:
-      - monitana_network
+    #networks:
+     # - monitana_network
 
   logstash:
     image: elastic/logstash:9.1.2
@@ -41,8 +41,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: $MONGO_USERNAME
       MONGO_INITDB_ROOT_PASSWORD: $MONGO_PASSWORD
-    networks:
-      - monitana_network
+    #networks:
+      #- monitana_network
 
   redis:
     image: redis:latest
@@ -53,12 +53,12 @@ services:
     command: redis-server --requirepass ${REDIS_PASSWORD}
     volumes:
       - monitana_redis:/data
-    networks:
-      - monitana_network
+    #networks:
+      #- monitana_network
 
 volumes:
   monitana_redis:
 
-networks:
-  monitana_network:
-    driver: bridge
+#networks:
+  #monitana_network:
+    #driver: bridge
